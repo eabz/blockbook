@@ -777,3 +777,8 @@ func (b *EthereumRPC) EthereumTypeGetNonce(addrDesc bchain.AddressDescriptor) (u
 func (b *EthereumRPC) GetChainParser() bchain.BlockChainParser {
 	return b.Parser
 }
+
+// GetTxoutSetInfo returns current chain supply
+func (b *EthereumRPC) GetTxoutSetInfo() (float64, error) {
+	return 0, nil
+}

@@ -1597,6 +1597,10 @@ func (w *Worker) GetFeeStats(bid string) (*FeeStats, error) {
 	}, nil
 }
 
+func (w *Worker) GetSupply() (float64, error) {
+	return w.chain.GetTxoutSetInfo()
+}
+
 // GetBlock returns paged data about block
 func (w *Worker) GetBlock(bid string, page int, txsOnPage int) (*Block, error) {
 	start := time.Now()

@@ -173,6 +173,7 @@ func (s *PublicServer) ConnectFullPublicInterface() {
 	serveMux.HandleFunc(path+"api/xpub/", s.jsonHandler(s.apiXpub, apiDefault))
 	serveMux.HandleFunc(path+"api/utxo/", s.jsonHandler(s.apiUtxo, apiDefault))
 	serveMux.HandleFunc(path+"api/block/", s.jsonHandler(s.apiBlock, apiDefault))
+	serveMux.HandleFunc(path+"api/totalsupply/", s.jsonHandler(s.apiSupply, apiDefault))
 	serveMux.HandleFunc(path+"api/sendtx/", s.jsonHandler(s.apiSendTx, apiDefault))
 	serveMux.HandleFunc(path+"api/estimatefee/", s.jsonHandler(s.apiEstimateFee, apiDefault))
 	serveMux.HandleFunc(path+"api/balancehistory/", s.jsonHandler(s.apiBalanceHistory, apiDefault))
@@ -1110,6 +1111,10 @@ func (s *PublicServer) apiBlock(r *http.Request, apiVersion int) (interface{}, e
 		}
 	}
 	return block, err
+}
+
+func (s *PublicServer) apiSupply(r *http.Request, apiVersion int) (interface{}, error) {
+	return s.api.GetSupply()
 }
 
 func (s *PublicServer) apiFeeStats(r *http.Request, apiVersion int) (interface{}, error) {

@@ -314,6 +314,11 @@ func (c *blockChainWithMetrics) EthereumTypeGetErc20ContractBalance(addrDesc, co
 	return c.b.EthereumTypeGetErc20ContractBalance(addrDesc, contractDesc)
 }
 
+// GetTxoutSetInfo returns current chain supply
+func (c *blockChainWithMetrics) GetTxoutSetInfo() (float64, error) {
+	return 0, nil
+}
+
 type mempoolWithMetrics struct {
 	mempool bchain.Mempool
 	m       *common.Metrics

@@ -213,3 +213,8 @@ func (c *fakeBlockChain) GetChainParser() bchain.BlockChainParser {
 func (c *fakeBlockChain) GetMempoolTransactions() ([]string, error) {
 	return nil, errors.New("Not implemented")
 }
+
+// GetTxoutSetInfo returns the total chain supply
+func (c *fakeBlockChain) GetTxoutSetInfo() (float64, error) {
+	return 0, errors.New("Not implemented")
+}

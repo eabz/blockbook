@@ -403,6 +403,23 @@ type ResGetMempoolEntry struct {
 	Result *bchain.MempoolEntry `json:"result"`
 }
 
+// gettxoutsetinfo
+
+type CmdGetTxoutSetInfo struct {
+	Method string   `json:"method"`
+	Params []string `json:"params"`
+}
+
+type ResGetTxoutSetInfo struct {
+	Height          int     `json:"height"`
+	Bestblock       string  `json:"bestblock"`
+	Transactions    int     `json:"transactions"`
+	Txouts          int     `json:"txouts"`
+	HashSerialized2 string  `json:"hash_serialized_2"`
+	DiskSize        int     `json:"disk_size"`
+	TotalAmount     float64 `json:"total_amount"`
+}
+
 // GetBestBlockHash returns hash of the tip of the best-block-chain.
 func (b *BitcoinRPC) GetBestBlockHash() (string, error) {
 
@@ -835,6 +852,23 @@ func (b *BitcoinRPC) SendRawTransaction(tx string) (string, error) {
 		return "", res.Error
 	}
 	return res.Result, nil
+}
+
+// GetTxoutSetInfo returns the total supply of the chain
+func (b *BitcoinRPC) GetTxoutSetInfo() (float64, error) {
+	glog.V(1).Info("rpc: gettxoutsetinfo")
+
+	res := &ResGetTxoutSetInfo{}
+	req := CmdGetTxoutSetInfo{
+		Method: "gettxoutsetinfo",
+	}
+
+	err := b.Call(&req, res)
+	if err != nil {
+		return 0, err
+	}
+
+	return res.TotalAmount, nil
 }
 
 // GetMempoolEntry returns mempool data for given transaction

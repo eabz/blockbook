@@ -270,6 +270,7 @@ type BlockChain interface {
 	EstimateFee(blocks int) (big.Int, error)
 	SendRawTransaction(tx string) (string, error)
 	GetMempoolEntry(txid string) (*MempoolEntry, error)
+	GetTxoutSetInfo() (float64, error)
 	// parser
 	GetChainParser() BlockChainParser
 	// EthereumType specific
