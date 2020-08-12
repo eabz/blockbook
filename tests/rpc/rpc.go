@@ -12,8 +12,8 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
+	"github.com/eabz/blockbook/bchain"
 	"github.com/juju/errors"
-	"github.com/trezor/blockbook/bchain"
 )
 
 var testMap = map[string]func(t *testing.T, th *TestHandler){

@@ -7,9 +7,9 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/eabz/blockbook/bchain/coins/eth"
+	"github.com/eabz/blockbook/tests/dbtestdata"
 	"github.com/juju/errors"
-	"github.com/trezor/blockbook/bchain/coins/eth"
-	"github.com/trezor/blockbook/tests/dbtestdata"
 )
 
 type testEthereumParser struct {

@@ -9,14 +9,14 @@ import (
 	"strings"
 	"time"
 
+	"github.com/eabz/blockbook/api"
+	"github.com/eabz/blockbook/bchain"
+	"github.com/eabz/blockbook/common"
+	"github.com/eabz/blockbook/db"
 	"github.com/golang/glog"
 	"github.com/juju/errors"
 	gosocketio "github.com/martinboehm/golang-socketio"
 	"github.com/martinboehm/golang-socketio/transport"
-	"github.com/trezor/blockbook/api"
-	"github.com/trezor/blockbook/bchain"
-	"github.com/trezor/blockbook/common"
-	"github.com/trezor/blockbook/db"
 )
 
 // SocketIoServer is handle to SocketIoServer

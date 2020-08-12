@@ -13,9 +13,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/eabz/blockbook/bchain"
+	"github.com/eabz/blockbook/bchain/coins/btc"
 	"github.com/martinboehm/btcutil/chaincfg"
-	"github.com/trezor/blockbook/bchain"
-	"github.com/trezor/blockbook/bchain/coins/btc"
 )
 
 var (

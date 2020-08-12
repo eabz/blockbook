@@ -11,13 +11,13 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/eabz/blockbook/api"
+	"github.com/eabz/blockbook/bchain"
+	"github.com/eabz/blockbook/common"
+	"github.com/eabz/blockbook/db"
 	"github.com/golang/glog"
 	"github.com/gorilla/websocket"
 	"github.com/juju/errors"
-	"github.com/trezor/blockbook/api"
-	"github.com/trezor/blockbook/bchain"
-	"github.com/trezor/blockbook/common"
-	"github.com/trezor/blockbook/db"
 )
 
 const upgradeFailed = "Upgrade failed: "

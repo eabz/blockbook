@@ -17,11 +17,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/eabz/blockbook/api"
+	"github.com/eabz/blockbook/bchain"
+	"github.com/eabz/blockbook/common"
+	"github.com/eabz/blockbook/db"
 	"github.com/golang/glog"
-	"github.com/trezor/blockbook/api"
-	"github.com/trezor/blockbook/bchain"
-	"github.com/trezor/blockbook/common"
-	"github.com/trezor/blockbook/db"
 )
 
 const txsOnPage = 25

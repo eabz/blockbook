@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/trezor/blockbook/common"
+	"github.com/eabz/blockbook/common"
 )
 
 // ChainType is type of the blockchain

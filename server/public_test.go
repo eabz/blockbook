@@ -14,16 +14,16 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eabz/blockbook/bchain"
+	"github.com/eabz/blockbook/bchain/coins/btc"
+	"github.com/eabz/blockbook/common"
+	"github.com/eabz/blockbook/db"
+	"github.com/eabz/blockbook/tests/dbtestdata"
 	"github.com/golang/glog"
 	"github.com/gorilla/websocket"
 	"github.com/martinboehm/btcutil/chaincfg"
 	gosocketio "github.com/martinboehm/golang-socketio"
 	"github.com/martinboehm/golang-socketio/transport"
-	"github.com/trezor/blockbook/bchain"
-	"github.com/trezor/blockbook/bchain/coins/btc"
-	"github.com/trezor/blockbook/common"
-	"github.com/trezor/blockbook/db"
-	"github.com/trezor/blockbook/tests/dbtestdata"
 )
 
 func TestMain(m *testing.M) {

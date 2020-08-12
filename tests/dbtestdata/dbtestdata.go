@@ -4,8 +4,8 @@ import (
 	"encoding/hex"
 	"math/big"
 
+	"github.com/eabz/blockbook/bchain"
 	"github.com/golang/glog"
-	"github.com/trezor/blockbook/bchain"
 )
 
 // Txids, Xpubs and Addresses
