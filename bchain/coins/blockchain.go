@@ -285,6 +285,11 @@ func (c *blockChainWithMetrics) GetMempoolEntry(txid string) (v *bchain.MempoolE
 	return c.b.GetMempoolEntry(txid)
 }
 
+func (c *blockChainWithMetrics) GetTxoutSetInfo() (res float64, err error) {
+	defer func(s time.Time) { c.observeRPCLatency("GetTxoutSetInfo", s, err) }(time.Now())
+	return c.b.GetTxoutSetInfo()
+}
+
 func (c *blockChainWithMetrics) GetChainParser() bchain.BlockChainParser {
 	return c.b.GetChainParser()
 }
@@ -312,11 +317,6 @@ func (c *blockChainWithMetrics) EthereumTypeGetErc20ContractInfo(contractDesc bc
 func (c *blockChainWithMetrics) EthereumTypeGetErc20ContractBalance(addrDesc, contractDesc bchain.AddressDescriptor) (v *big.Int, err error) {
 	defer func(s time.Time) { c.observeRPCLatency("EthereumTypeGetErc20ContractInfo", s, err) }(time.Now())
 	return c.b.EthereumTypeGetErc20ContractBalance(addrDesc, contractDesc)
-}
-
-// GetTxoutSetInfo returns current chain supply
-func (c *blockChainWithMetrics) GetTxoutSetInfo() (float64, error) {
-	return 0, nil
 }
 
 type mempoolWithMetrics struct {

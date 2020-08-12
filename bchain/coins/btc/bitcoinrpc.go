@@ -864,6 +864,7 @@ func (b *BitcoinRPC) GetTxoutSetInfo() (float64, error) {
 	}
 
 	err := b.Call(&req, res)
+
 	if err != nil {
 		return 0, err
 	}

@@ -6,7 +6,7 @@
     "alias": "polis"
   },
   "ports": {
-    "backend_rpc": 8067,
+    "backend_rpc": 24127,
     "backend_message_queue": 38367,
     "blockbook_internal": 9067,
     "blockbook_public": 9167
