@@ -411,13 +411,15 @@ type CmdGetTxoutSetInfo struct {
 }
 
 type ResGetTxoutSetInfo struct {
-	Height          int     `json:"height"`
-	Bestblock       string  `json:"bestblock"`
-	Transactions    int     `json:"transactions"`
-	Txouts          int     `json:"txouts"`
-	HashSerialized2 string  `json:"hash_serialized_2"`
-	DiskSize        int     `json:"disk_size"`
-	TotalAmount     float64 `json:"total_amount"`
+	Error  *bchain.RPCError `json:"error"`
+	Result struct {
+		Height          int     `json:"height"`
+		Bestblock       string  `json:"bestblock"`
+		Transactions    int     `json:"transactions"`
+		Txouts          int     `json:"txouts"`
+		DiskSize        int     `json:"disk_size"`
+		TotalAmount     float64 `json:"total_amount"`
+	} `json:"result"`
 }
 
 // GetBestBlockHash returns hash of the tip of the best-block-chain.
@@ -868,8 +870,11 @@ func (b *BitcoinRPC) GetTxoutSetInfo() (float64, error) {
 	if err != nil {
 		return 0, err
 	}
+	if res.Error != nil {
+		return 0, res.Error
+	}
 
-	return res.TotalAmount, nil
+	return res.Result.TotalAmount, nil
 }
 
 // GetMempoolEntry returns mempool data for given transaction
